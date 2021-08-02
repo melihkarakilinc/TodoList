@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block change %}
+
+    <table class="table table-striped table-dark">
+        <thead>
+        <tr>
+
+            <th scope="col">id</th>
+            <th scope="col">is_Başlık</th>
+            <th scope="col">is_içerik</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for item in items %}
+            <tr>
+
+                <td>{{ item["is_id"] }}</td>
+                <td>{{ item["is_baslik"] }}</td>
+                <td>{{ item["is_icerik"] }}</td>
+                <td><a class="btn btn-sm btn-info" href="{{ url_for('duzenle',id=item["is_id"]) }}" role="button">DÜZENLE</a>
+                </td>
+                <td>
+                    <a class="btn btn-sm btn-secondary" href="{{ url_for('sil',id=item["is_id"]) }}" role="button">SİL</a>
+
+                </td>
+                <td>
+                    <label class="container">TAMAMLANDI
+                        <input type="checkbox" checked="checked">
+                        <span class="checkmark"></span>
+                    </label>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
+
+
+
